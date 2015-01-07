@@ -5,10 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
 var app = express();
+var router = express.Router();
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
@@ -60,9 +58,12 @@ if (app.get('env') === 'production') {
     });
 }
 
-
-module.exports = app;
-
 /*
  ** Shouldl the API be described here?
  */
+// usually recommended to place all require() at the top though...
+require('./routes/index')(router);
+require('./routes/users')(router);
+
+
+module.exports = app;
