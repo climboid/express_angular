@@ -1,6 +1,5 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -64,6 +63,7 @@ if (app.get('env') === 'production') {
 // usually recommended to place all require() at the top though...
 require('./routes/index')(router);
 require('./routes/users')(router);
+app.use('/', router);
 
 
 module.exports = app;
