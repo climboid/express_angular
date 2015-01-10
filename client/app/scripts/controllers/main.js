@@ -11,7 +11,7 @@ angular.module('clientApp')
   .controller('MainCtrl', function ($scope, $http) {
     
   	// to where should this http call be made to?
-  	$http.get('/api/users').
+  	$http.get('/userlist').
 	  success(function(data, status, headers, config) {
 	    console.log('data', data);
 	  }).

@@ -2,9 +2,16 @@
 module.exports = function(router){
 
   /* GET users listing. */
-  router.get('/api/users', function(req, res) {
-    var users = []; // TODO get the list of users
-    res.send(200, users);
+  // router.get('/api/users', function(req, res) {
+  //   var users = []; // TODO get the list of users
+  //   res.send(200, users);
+  // });
+
+  router.get('/userlist', function(req, res) {
+    var db = req.db;
+    db.collection('userlist').find().toArray(function (err, items) {
+      res.json(items);
+    });
   });
 
   /* Create a new user */
