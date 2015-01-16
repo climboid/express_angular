@@ -1,23 +1,20 @@
-<div class="jumbotron">
-  <h1>'Oscar</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
+<ul class="list">
+  <li ng-repeat="user in users" ng-bind="user.fullname"></li>
+</ul>
+<form>
+  <div class="form-group">
+    <label for="exampleForFullName">Name</label>
+    <input type="text" class="form-control" id="" placeholder="Enter full name" ng-model="name">
+  </div>
+  <button type="submit" class="btn btn-danger" ng-click="submitForm()">Submit</button>
+  <br><br>
+  <button class="btn btn-primary" ng-click="getUser()">Get a single user</button>
+  <h2 ng-bind="foundUser"></h2>
+  <br><br>
+  <div class="form-group">
+  	<input type="text" class="form-control" placeholder="change random users name" ng-model="newName" />
+  </div>
+  <button class="btn btn-primary" ng-click="updateUser()">Update a single item</button>
+  <br><br>
+  <button class="btn btn-primary" ng-click="deleteUser()">Delete a single user</button>
+</form>

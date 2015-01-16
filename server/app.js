@@ -4,6 +4,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
+
 // Database
 var mongo = require('mongoskin');
 var db = mongo.db("mongodb://localhost:27017/nodetest2", {native_parser:true});
@@ -64,10 +66,6 @@ if (app.get('env') === 'production') {
     });
 }
 
-/*
- ** Shouldl the API be described here?
- */
-// usually recommended to place all require() at the top though...
 app.use(function(req, res, next) {
     req.db = db;
     next();
